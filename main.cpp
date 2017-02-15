@@ -7,11 +7,14 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <iomanip>
 
 using namespace std;
 
 int main() {
     double box, sideline, premium, general;
+    int ticketsSold;
 
     ifstream inFile;
     ofstream outFile;
@@ -20,6 +23,9 @@ int main() {
     outFile.open("Ch3_Ex5Out.txt");
 
     cout << "Processing data... >.<" << endl;
+
+    inFile >> box >> ticketsSold;
+    outFile << "Tickets sold at " << box << endl;
 
     inFile.close();
     outFile.close();
