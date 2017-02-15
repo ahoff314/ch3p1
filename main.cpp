@@ -13,8 +13,8 @@
 using namespace std;
 
 int main() {
-    double box, sideline, premium, general;
-    int ticketsSold;
+    int box, sideline, premium, general;
+    int ticketsSold1, ticketsSold2, ticketsSold3, ticketsSold4;
 
     ifstream inFile;
     ofstream outFile;
@@ -22,10 +22,17 @@ int main() {
     inFile.open("Ch3_Ex5Data.txt");
     outFile.open("Ch3_Ex5Out.txt");
 
+    outFile << fixed << showpoint;
+    outFile << setprecision(2);
+
     cout << "Processing data... >.<" << endl;
 
-    inFile >> box >> ticketsSold;
-    outFile << "Tickets sold at " << box << endl;
+    inFile >> box;
+
+           //>> ticketsSold1 >> sideline >> ticketsSold2 >> premium >> ticketsSold3
+            //>> general >> ticketsSold4;
+
+    outFile << "Box tickets cost $" << box << endl;
 
     inFile.close();
     outFile.close();
