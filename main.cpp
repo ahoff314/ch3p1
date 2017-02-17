@@ -1,45 +1,65 @@
 /***************************
  * Alex Hoffmann
- * 2/14/17
+ * 2/15/17
  * Chapter 3, Program 1
  ****************************/
 
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <iomanip>
 
 using namespace std;
 
 int main() {
-    int box, sideline, premium, general;
-    int ticketsSold1, ticketsSold2, ticketsSold3, ticketsSold4;
 
+    int box;
+    int sideline;
+    int premium;
+    int general;
+
+    int boxSold;
+    int sidelineSold;
+    int premiumSold;
+    int generalSold;
+
+    int ticketsSold;
+    double saleAmount;
+
+    //Declare file stream variables
     ifstream inFile;
     ofstream outFile;
 
+    //Open files
     inFile.open("Ch3_Ex5Data.txt");
     outFile.open("Ch3_Ex5Out.txt");
 
+    cout << "Processing data..." << endl;
+
+    //Show decimal point and set precision to two decimal points
     outFile << fixed << showpoint;
     outFile << setprecision(2);
 
-    cout << "Processing data... >.<" << endl;
+    //Read input data
+    inFile >> box >> boxSold >> sideline >> sidelineSold
+           >> premium >> premiumSold >> general >> generalSold;
 
-    inFile >> box;
+    //Calculate total tickets sold and total sale amount
+    ticketsSold = boxSold + sidelineSold + premiumSold + generalSold;
 
-           //>> ticketsSold1 >> sideline >> ticketsSold2 >> premium >> ticketsSold3
-            //>> general >> ticketsSold4;
+    saleAmount = (box * boxSold) + (sideline * sidelineSold) + (premium * premiumSold)
+                 + (general * generalSold);
 
-    outFile << "Box tickets cost $" << box << endl;
 
+
+    //Output new .txt file with total number of tickets sold and total sale amount
+    outFile << "Number of tickets sold = " << ticketsSold << endl;
+    outFile << showpoint << "Sale amount = $" << saleAmount << endl;
+
+
+    //Close files
     inFile.close();
     outFile.close();
-
-
-    //Number of tickets sold = 88250
-    // Sale amount = $6493750.00
 
     return 0;
 }
