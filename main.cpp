@@ -56,6 +56,7 @@ int main() {
     outFile << "Number of tickets sold = " << ticketsSold << endl;
     outFile << showpoint << "Sale amount = $" << saleAmount << endl;
 
+    cout << "See output file: Ch3_Ex5Out.txt for the results." << endl;
 
     //Close files
     inFile.close();
